@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramadan 2026 Planner & Tracker</title>
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Crescent_moon.svg/32px-Crescent_moon.svg.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Roboto',sans-serif;background:#fff;color:#333;scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+header,footer{background:linear-gradient(135deg,#4cb5ae,#6a4c93);color:#fff;text-align:center;padding:20px 0;}
+header h1{font-size:2.5rem;margin:10px 0;}
+header p{font-size:1.1rem;margin-bottom:10px;}
+footer p{font-size:1rem;margin:0;}
+nav{display:flex;justify-content:center;flex-wrap:wrap;background:#f8f9fa;padding:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.1);}
+nav button{background:#fff;border:none;padding:10px 14px;margin:5px;border-radius:14px;font-weight:500;cursor:pointer;transition:.3s;}
+nav button.active,nav button:hover{background:#4cb5ae;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+.search-box{text-align:center;margin:20px 0;}
+.search-box input{width:80%;max-width:450px;padding:12px 15px;font-size:1rem;border:1px solid #ccc;border-radius:25px;box-shadow:0 2px 6px rgba(0,0,0,.1);}
+.search-box input:focus{outline:none;border-color:#4cb5ae;box-shadow:0 4px 12px rgba(0,0,0,.15);}
+section{max-width:1000px;margin:auto;padding:0 20px 40px;}
+.card{background:#fff;border-radius:15px;padding:20px;margin:15px 0;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:.3s;}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(0,0,0,.15);}
+.card h2{font-size:1.4rem;color:#4cb5ae;margin-bottom:10px;display:flex;align-items:center;}
+.card h2 .icon{margin-right:10px;font-size:1.4rem;color:#f6b93b;}
+.card-content{display:none;margin-top:12px;}
+.card-content ul{list-style:disc;padding-left:20px;}
+.card-content ul li{margin-bottom:8px;font-size:1rem;}
+input[type="checkbox"]{transform:scale(1.2);margin-right:8px;cursor:pointer;}
+table{width:100%;border-collapse:collapse;margin-top:10px;}
+th,td{padding:10px;text-align:center;border-bottom:1px solid #ddd;}
+th{background:#4cb5ae;color:#fff;}
+tbody tr:nth-child(even){background:#f9f9f9;}
+.juz-links a{display:inline-block;margin:5px 5px 5px 0;padding:8px 12px;background:#6a4c93;color:#fff;border-radius:8px;font-weight:500;transition:.3s;}
+.juz-links a:hover{background:#4cb5ae;}
+.floating{position:absolute;font-size:2rem;opacity:0.8;animation:floatDown linear infinite;z-index:0;}
+@keyframes floatDown{0%{transform:translateY(0) rotate(0deg);opacity:0.8;}50%{opacity:1;}100%{transform:translateY(110vh) rotate(360deg);opacity:0.2;}}
+@media(max-width:768px){header h1{font-size:2rem;} nav button{padding:8px 12px;}}
+</style>
+</head>
+<body>
+
+<!-- Floating Icons -->
+<div class="floating" style="left:5%; animation-duration:25s;">🌙</div>
+<div class="floating" style="left:20%; animation-duration:30s; font-size:1.8rem;">🕋</div>
+<div class="floating" style="left:35%; animation-duration:22s;">🏮</div>
+<div class="floating" style="left:50%; animation-duration:28s; font-size:2.2rem;">🌙</div>
+<div class="floating" style="left:65%; animation-duration:26s;">🕋</div>
+<div class="floating" style="left:80%; animation-duration:32s; font-size:1.8rem;">🏮</div>
+<div class="floating" style="left:90%; animation-duration:27s;">🌙</div>
+
+<header>
+<h1>🌙 Ramadan 2026 Planner & Tracker</h1>
+<p>All-in-one Ramadan guide — planners, duas, prayer times, Quran, health & more.</p>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('home')">Home</button>
+  <button onclick="showTab('spiritual')">Spiritual</button>
+  <button onclick="showTab('health')">Health</button>
+  <button onclick="showTab('prayers')">Prayer Times</button>
+  <button onclick="showTab('last10')">Last 10 Nights</button>
+  <button onclick="showTab('eid')">Eid Prep</button>
+  <button onclick="showTab('quran')">Quran</button>
+  <button onclick="showTab('planner')">Daily Planner</button>
+</nav>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search tips, duas, tasks..." onkeyup="filterContent()">
+</div>
+
+<section id="home" class="tab-content">
+  <div class="card" style="cursor:auto;">
+    <h2><span class="icon">🏠</span>Welcome</h2>
+    <div class="card-content" style="display:block;">
+      <p>Welcome! May Allah accept your fasts, prayers, and good deeds this Ramadan. 🌙✨</p>
+    </div>
+  </div>
+</section>
+
+<section id="spiritual" class="tab-content" style="display:none;">
+  <div class="card">
+    <h2><span class="icon">🕌</span>Spiritual Goals & Duas</h2>
+    <div class="card-content" style="display:block;">
+      <ul>
+        <li>Complete all five daily prayers on time</li>
+        <li>Read or listen to Quran daily</li>
+        <li>Make specific, sincere duas every day</li>
+        <li>Increase charity and good deeds</li>
+        <li>Example Dua: “O Allah, accept my fasting, prayers & good deeds.”</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="health" class="tab-content" style="display:none;">
+  <div class="card">
+    <h2><span class="icon">🥗</span>Health & Personal Goals</h2>
+    <div class="card-content" style="display:block;">
+      <ul>
+        <li>Eat balanced Suhoor & Iftar</li>
+        <li>Drink enough water</li>
+        <li>Light exercise daily</li>
+        <li>Maintain good sleep schedule</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="prayers" class="tab-content" style="display:none;">
+  <div class="card">
+    <h2><span class="icon">🕋</span>Next Prayer Countdown</h2>
+    <div class="card-content" style="display:block;">
+      <p id="nextPrayer" style="font-size:1.2rem; font-weight:bold;">Loading...</p>
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">📅</span>Prayer Timetable (Cape Town)</h2>
+    <div class="card-content" style="display:block;">
+      <table>
+        <thead><tr><th>Date</th><th>Fajr</th><th>Dhuhr</th><th>Asr</th><th>Maghrib</th><th>Isha</th></tr></thead>
+        <tbody id="prayerTable"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="last10" class="tab-content" style="display:none;">
+  <div class="card">
+    <h2><span class="icon">🌙</span>Last 10 Nights / Laylatul Qadr</h2>
+    <div class="card-content" style="display:block;">
+      <ul>
+        <li>Focus on night prayers & reflection</li>
+        <li>Make abundant duas</li>
+        <li>Seek forgiveness</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="eid" class="tab-content" style="display:none;">
+  <div class="card">
+    <h2><span class="icon">🎉</span>Eid Preparations</h2>
+    <div class="card-content" style="display:block;">
+      <ul>
+        <li>Plan Eid prayers</li>
+        <li>Reflect on Ramadan</li>
+        <li>Celebrate blessings</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="quran" class="tab-content" style="display:none;"></section>
+<section id="planner" class="tab-content" style="display:none;"></section>
+
+<footer><p>Ramadan 2026 – Cape Town | May Allah bless your ibadah 🌙✨</p></footer>
+
+<script>
+// Tabs
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(s=>s.style.display='none');
+  document.getElementById(id).style.display='block';
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Search
+function filterContent(){
+  const search=document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(card=>{
+    card.style.display=card.innerText.toLowerCase().includes(search)?'block':'none';});
+}
+
+// Planner with checkboxes
+const planner=document.getElementById('planner');
+const dailyData=Array.from({length:30},(_,i)=>({
+  day:i+1,
+  date:`${17+i} Feb`,
+  tasks:['Fasting','Daily Prayers','Quran Reading','Duas/Good Deeds','Charity'],
+  dua:'O Allah, accept my fasting, prayers & deeds.'
+}));
+dailyData.forEach(d=>{
+  const card=document.createElement('div');card.className='card';
+  card.innerHTML=`<h2><span class="icon">📅</span>Day ${d.day} - ${d.date}</h2>
+  <div class="card-content"><ul>${d.tasks.map(t=>`<li><label><input type="checkbox" data-day="${d.day}" data-task="${t}"> ${t}</label></li>`).join('')}<li>Dua: ${d.dua}</li></ul></div>`;
+  planner.appendChild(card);
+});
+document.addEventListener('click',e=>{
+  if(e.target.closest('#planner .card')){
+    const c=e.target.closest('.card').querySelector('.card-content');
+    c.style.display=c.style.display==='block'?'none':'block';
+  }
+});
+// Save checkbox state
+document.addEventListener('change',e=>{
+  if(e.target.type==='checkbox'){
+    const key=`day${e.target.dataset.day}_${e.target.dataset.task}`;
+    localStorage.setItem(key,e.target.checked);
+  }
+});
+document.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+  const key=`day${cb.dataset.day}_${cb.dataset.task}`;
+  cb.checked=localStorage.getItem(key)==='true';
+});
+
+// Quran Juz
+const quranSec=document.getElementById('quran');
+const juzCard=document.createElement('div');juzCard.className='card';
+juzCard.innerHTML=`<h2><span class="icon">🎧</span>Listen to Quran — 30 Juz</h2>
+<div class="card-content juz-links" style="display:block;">
+${Array.from({length:30},(_,i)=>`<a href="http://j.mp/${i+1}" target="_blank">Juz ${i+1}</a>`).join('')}
+</div>`;
+quranSec.appendChild(juzCard);
+
+// Prayer Times 30 days (sample)
+const prayerTimes=[
+{date:'17 Feb',fajr:'05:00',dhuhr:'12:30',asr:'16:00',maghrib:'19:15',isha:'20:30'},
+{date:'18 Feb',fajr:'05:01',dhuhr:'12:31',asr:'16:01',maghrib:'19:16',isha:'20:31'},
+{date:'19 Feb',fajr:'05:02',dhuhr:'12:31',asr:'16:02',maghrib:'19:17',isha:'20:32'},
+{date:'20 Feb',fajr:'05:03',dhuhr:'12:32',asr:'16:02',maghrib:'19:18',isha:'20:33'},
+{date:'21 Feb',fajr:'05:04',dhuhr:'12:32',asr:'16:03',maghrib:'19:19',isha:'20:34'},
+{date:'22 Feb',fajr:'05:05',dhuhr:'12:33',asr:'16:04',maghrib:'19:20',isha:'20:35'},
+{date:'23 Feb',fajr:'05:06',dhuhr:'12:33',asr:'16:04',maghrib:'19:21',isha:'20:36'},
+{date:'24 Feb',fajr:'05:07',dhuhr:'12:34',asr:'16:05',maghrib:'19:22',isha:'20:37'},
+{date:'25 Feb',fajr:'05:08',dhuhr:'12:34',asr:'16:06',maghrib:'19:23',isha:'20:38'},
+{date:'26 Feb',fajr:'05:09',dhuhr:'12:35',asr:'16:07',maghrib:'19:24',isha:'20:39'},
+{date:'27 Feb',fajr:'05:10',dhuhr:'12:35',asr:'16:08',maghrib:'19:25',isha:'20:40'},
+{date:'28 Feb',fajr:'05:11',dhuhr:'12:36',asr:'16:09',maghrib:'19:26',isha:'20:41'},
+{date:'1 Mar',fajr:'05:12',dhuhr:'12:36',asr:'16:10',maghrib:'19:27',isha:'20:42'},
+{date:'2 Mar',fajr:'05:13',dhuhr:'12:37',asr:'16:11',maghrib:'19:28',isha:'20:43'},
+{date:'3 Mar',fajr:'05:14',dhuhr:'12:37',asr:'16:12',maghrib:'19:29',isha:'20:44'},
+{date:'4 Mar',fajr:'05:15',dhuhr:'12:38',asr:'16:13',maghrib:'19:30',isha:'20:45'},
+{date:'5 Mar',fajr:'05:16',dhuhr:'12:38',asr:'16:14',maghrib:'19:31',isha:'20:46'},
+{date:'6 Mar',fajr:'05:17',dhuhr:'12:39',asr:'16:15',maghrib:'19:32',isha:'20:47'},
+{date:'7 Mar',fajr:'05:18',dhuhr:'12:39',asr:'16:16',maghrib:'19:33',isha:'20:48'},
+{date:'8 Mar',fajr:'05:19',dhuhr:'12:40',asr:'16:17',maghrib:'19:34',isha:'20:49'},
+{date:'9 Mar',fajr:'05:20',dhuhr:'12:40',asr:'16:18',maghrib:'19:35',isha:'20:50'},
+{date:'10 Mar',fajr:'05:21',dhuhr:'12:41',asr:'16:19',maghrib:'19:36',isha:'20:51'},
+{date:'11 Mar',fajr:'05:22',dhuhr:'12:41',asr:'16:20',maghrib:'19:37',isha:'20:52'},
+{date:'12 Mar',fajr:'05:23',dhuhr:'12:42',asr:'16:21',maghrib:'19:38',isha:'20:53'},
+{date:'13 Mar',fajr:'05:24',dhuhr:'12:42',asr:'16:22',maghrib:'19:39',isha:'20:54'},
+{date:'14 Mar',fajr:'05:25',dhuhr:'12:43',asr:'16:23',maghrib:'19:40',isha:'20:55'},
+{date:'15 Mar',fajr:'05:26',dhuhr:'12:43',asr:'16:24',maghrib:'19:41',isha:'20:56'},
+{date:'16 Mar',fajr:'05:27',dhuhr:'12:44',asr:'16:25',maghrib:'19:42',isha:'20:57'},
+{date:'17 Mar',fajr:'05:28',dhuhr:'12:44',asr:'16:26',maghrib:'19:43',isha:'20:58'},
+{date:'18 Mar',fajr:'05:29',dhuhr:'12:45',asr:'16:27',maghrib:'19:44',isha:'20:59'},
+{date:'19 Mar',fajr:'05:30',dhuhr:'12:45',asr:'16:28',maghrib:'19:45',isha:'21:00'},
+{date:'20 Mar',fajr:'05:31',dhuhr:'12:46',asr:'16:29',maghrib:'19:46',isha:'21:01'},
+{date:'21 Mar',fajr:'05:32',dhuhr:'12:46',asr:'16:30',maghrib:'19:47',isha:'21:02'},
+{date:'22 Mar',fajr:'05:33',dhuhr:'12:47',asr:'16:31',maghrib:'19:48',isha:'21:03'},
+{date:'23 Mar',fajr:'05:34',dhuhr:'12:47',asr:'16:32',maghrib:'19:49',isha:'21:04'},
+{date:'24 Mar',fajr:'05:35',dhuhr:'12:48',asr:'16:33',maghrib:'19:50',isha:'21:05'},
+{date:'25 Mar',fajr:'05:36',dhuhr:'12:48',asr:'16:34',maghrib:'19:51',isha:'21:06'},
+{date:'26 Mar',fajr:'05:37',dhuhr:'12:49',asr:'16:35',maghrib:'19:52',isha:'21:07'},
+{date:'27 Mar',fajr:'05:38',dhuhr:'12:49',asr:'16:36',maghrib:'19:53',isha:'21:08'},
+{date:'28 Mar',fajr:'05:39',dhuhr:'12:50',asr:'16:37',maghrib:'19:54',isha:'21:09'},
+{date:'29 Mar',fajr:'05:40',dhuhr:'12:50',asr:'16:38',maghrib:'19:55',isha:'21:10'},
+{date:'30 Mar',fajr:'05:41',dhuhr:'12:51',asr:'16:39',maghrib:'19:56',isha:'21:11'}
+];
+const tbody=document.getElementById('prayerTable');
+prayerTimes.forEach(p=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${p.date}</td><td>${p.fajr}</td><td>${p.dhuhr}</td><td>${p.asr}</td><td>${p.maghrib}</td><td>${p.isha}</td>`;tbody.appendChild(tr);});
+
+// Next prayer update
+function updateNextPrayer(){
+  const now=new Date();
+  const today=prayerTimes[now.getDate()-17]; // assuming Feb 17 = day 1
+  if(!today)return;
+  const times=['fajr','dhuhr','asr','maghrib','isha'];
+  let next='';
+  for(const t of times){
+    const [h,m]=today[t].split(':').map(Number);
+    const prayerTime=new Date(now.getFullYear(),now.getMonth(),now.getDate(),h,m);
+    if(now<prayerTime){next=`Next: ${t.charAt(0).toUpperCase()+t.slice(1)} at ${today[t]}`;break;}
+  }
+  if(!next) next='All prayers for today completed!';
+  document.getElementById('nextPrayer').innerText=next;
+}
+setInterval(updateNextPrayer,1000);
+updateNextPrayer();
+</script>
+</body>
+</html>
